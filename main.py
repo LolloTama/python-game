@@ -10,16 +10,19 @@ class World:
     self.larghezza = larghezza
     self.altezza = altezza
 
-  def create(self):
+  def create(self,*n):
     for y in range(self.altezza):
       for x in range(self.larghezza):
-        if e.x == x and e.y == y:
-          print("[{}]".format(e.graphic), end="")
+        for e in n:
+          if (e.x - 1) == x and (e.y - 1) == y:
+            print("[{}]".format(e.graphic), end="")
+            break
         else:
-          print("[ ]", end="")
+         print("[ ]", end="")
 
       print()
 
-e = Entity(5, 5, "X")
-world = World(1,10,10)
-world.create()
+e = Entity(10,10,"X")
+m = Entity(2,19,"M")
+world = World(1,20,20)
+world.create(e, m)
